@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Sign up</h1>
+    {% if error != '' %}
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        {{ error }}
+    </div>
+    {% endif %}
+    <form method='post' action="{% url 'signup' %}">
+        {% csrf_token %}
+        <label>Username</label>
+        <input type="text" name="username"/>
+        <label>Email</label>
+        <input type="text" name="email"/>
+        <label>Password</label>
+        <input type="password" name="password"/>
+        <label>Password Confirmation</label>
+        <input type="password" name="password_confirmation"/>
+        
+        <input type="submit" value="Sign Up"/>
+    </form>    
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class='post single'>
+        <h1>{{ post.title }}</h1>
+        <h4><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{ post.getShortDate }}</h4>
+        <img src='{{post.image.url}}' alt='' class='img-responsive center-block'/>
+        <p>{{ post.body }}</p>
+    </div>
+{% endblock %}

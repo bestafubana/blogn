@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for post in posts.all %}
+        <div class='post'>
+            <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
+            <h4><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{ post.getShortDate }}</h4>
+            <a href="{{ post.get_absolute_url }}"><img src='{{post.image.url}}' alt='' class='img-responsive center-block'/></a>
+            <p>{{ post.summary }}</p>
+        </div>
+
+        <hr/>
+    {% endfor %}
+{% endblock %}
