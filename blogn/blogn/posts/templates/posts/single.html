@@ -6,4 +6,11 @@
         <img src='{{post.image.url}}' alt='' class='img-responsive center-block'/>
         <p>{{ post.body }}</p>
     </div>
+    <div>
+      <ul>
+        {% for comment in comments %}
+          <li>{{ comment }}</li>
+        {% endfor %}
+      </ul>
+    </div>
 {% endblock %}

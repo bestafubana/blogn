@@ -51,3 +51,23 @@ class Post(models.Model):
         # verbose_name=''
         # verbose_name_plural=''
         ordering = ['-pub_date']
+
+class Comment(models.Model):
+    author = models.ForeignKey(User)
+    post = models.ForeignKey(Post)
+    parent_comment = models.ForeignKey("self", null=True, blank=True)
+    body = models.TextField(max_length=1024)
+    pub_date = models.DateTimeField('Publication Date', auto_now_add=True)
+    likes = models.IntegerField(default=0)
+    dislikes = models.IntegerField(default=0)
+    
+    def __str__(self):
+        return self.pub_date.strftime('%b, %e %Y') + " - " + self.author.username + " - " + self.body[:30] + "..."
+        
+    def ranking(self):
+        return self.likes - self.dislikes
+    
+    # class Meta:
+        # verbose_name=''
+        # verbose_name_plural=''
+        ordering = ['pub_date']
