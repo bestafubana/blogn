@@ -7,9 +7,14 @@
         <p>{{ post.body }}</p>
     </div>
     <div>
+      {% load app_filters %}
       <ul>
         {% for comment in comments %}
-          <li>{{ comment }}</li>
+          <li>
+            <img src="{{ comment.author.email|gravatar_url:150 }}" alt="{{ comment.author.username }}"/>
+            <h2>{{ comment.author.username }}</h2>
+            <p>{{ comment.body }}</p>
+          </li>
         {% endfor %}
       </ul>
     </div>
