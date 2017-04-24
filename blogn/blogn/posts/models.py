@@ -59,7 +59,6 @@ class Comment(models.Model):
     body = models.TextField(max_length=1024)
     pub_date = models.DateTimeField('Publication Date', auto_now_add=True)
     likes = models.IntegerField(default=0)
-    dislikes = models.IntegerField(default=0)
     
     def __str__(self):
         return self.pub_date.strftime('%b, %e %Y') + " - " + self.author.username + " - " + self.body[:30] + "..."
