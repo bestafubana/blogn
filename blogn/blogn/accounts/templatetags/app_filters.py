@@ -9,7 +9,7 @@ register = template.Library()
 # TEMPLATE USE:  {{ email|gravatar_url:150 }}
 @register.filter
 def gravatar_url(email, size=40):
-    default = "https://example.com/static/images/defaultavatar.jpg"
+    default = "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&f=y"
     return "https://www.gravatar.com/avatar/%s?%s" % (hashlib.md5(email.encode('utf-8').lower()).hexdigest(), urllib.parse.urlencode({'d':default, 's':str(size)}))
  
 # return an image tag with the gravatar

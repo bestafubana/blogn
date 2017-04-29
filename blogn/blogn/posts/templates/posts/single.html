@@ -7,10 +7,19 @@
         <p>{{ post.body }}</p>
     </div>
     <div>
+      <style>
+        .subcomment{
+          padding-left: 40px;
+        }
+      </style>
       {% load app_filters %}
       <ul>
         {% for comment in comments %}
-          <li>
+          {% if comment.parent_comment_id != None %}
+            <li class='subcomment'>
+          {% else %}
+            <li class='comment'>
+          {% endif %}
             <img src="{{ comment.author.email|gravatar_url:150 }}" alt="{{ comment.author.username }}"/>
             <h2>{{ comment.author.username }}</h2>
             <span class="date">{{ comment.pub_date|date:"jS F Y H:i" }}</span>

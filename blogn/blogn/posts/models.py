@@ -62,11 +62,8 @@ class Comment(models.Model):
     
     def __str__(self):
         return self.pub_date.strftime('%b, %e %Y') + " - " + self.author.username + " - " + self.body[:30] + "..."
-        
-    def ranking(self):
-        return self.likes - self.dislikes
     
     # class Meta:
         # verbose_name=''
         # verbose_name_plural=''
-        ordering = ['pub_date']
+        # ordering = ['pub_date']
