@@ -1,0 +1,13 @@
+{
+  "name": "blogn",
+  "version": "1.0.0",
+  "description": "dependencies to manage LESS and css files",
+  "main": "Gruntfile.js",
+  "repository": "https://github.com/bestafubana/blogn",
+  "author": "natanaelsilva@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
