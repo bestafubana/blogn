@@ -7,20 +7,15 @@
         <p>{{ post.body }}</p>
     </div>
     <div>
-      <style>
-        .subcomment{
-          padding-left: 40px;
-        }
-      </style>
       {% load app_filters %}
       <ul>
         {% for comment in comments %}
           {% if comment.parent_comment_id != None %}
-            <li class='subcomment'>
+            <li class='comment subcomment'>
           {% else %}
             <li class='comment'>
           {% endif %}
-            <img src="{{ comment.author.email|gravatar_url:150 }}" alt="{{ comment.author.username }}"/>
+            <img src="{{ comment.author.email|gravatar_url:150 }}" alt="{{ comment.author.username }}" class="avatar"/>
             <h2>{{ comment.author.username }}</h2>
             <span class="date">{{ comment.pub_date|date:"jS F Y H:i" }}</span>
             <p>{{ comment.body }}</p>
@@ -28,5 +23,7 @@
           </li>
         {% endfor %}
       </ul>
+      <img src="{{ user.email|gravatar_url:150 }}" alt="{{ user.username }}"/>
+      <input type="text" name='newComment' class='new-comment-field'/>
     </div>
 {% endblock %}
