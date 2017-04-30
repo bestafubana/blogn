@@ -8,7 +8,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         watch: {
             // if any .less file changes in directory "public/css/" run the "less"-task.
-            files: "./static/less/*.less",
+            files: "./blogn/static/less/*.less",
             tasks: ["less"]
         },
         // "less"-task configuration
@@ -22,8 +22,8 @@ module.exports = function (grunt) {
                 },
                 files: {
                     // compilation.css  :  source.less
-                    "./static/css/style.css": "./static/less/style.less",
-                    "./static/css/admin-style.css": "./static/less/admin-style.less",
+                    "./blogn/static/css/style.css": "./blogn/static/less/style.less",
+                    "./blogn/static/css/admin-style.css": "./blogn/static/less/admin-style.less",
                 }
             },
         },
